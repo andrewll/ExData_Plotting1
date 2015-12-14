@@ -1,9 +1,6 @@
 plot1<-function(){
   library(ggplot2)
   library(dplyr)
-  library(sqldf)
-  library(scales)
-  library(reshape2)
   library(lubridate)
   
   ## read data
@@ -36,7 +33,8 @@ plot1<-function(){
   dat6<-mutate(dat5, date_time = Date+hrsminsec)
   
   ##Plot 1 - histogram
+  png("C:/Users/andrewll/Documents/R/expldata/ExData_Plotting1/plot1.png", width = 480, height = 480, units = "px")
   hist(subset(dat6)$Global_active_power, col = "red", main = "Global Active Power", xlab = "Globa Active Power (kilowatts)")
-  
+  dev.off()
   
 }
