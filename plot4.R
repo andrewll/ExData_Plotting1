@@ -9,9 +9,6 @@ plot4<-function(){
   
   library(ggplot2)
   library(dplyr)
-  library(sqldf)
-  library(scales)
-  library(reshape2)
   library(lubridate)
   
   ## read data
@@ -43,7 +40,8 @@ plot4<-function(){
   ##create date plus time variable
   dat6<-mutate(dat5, date_time = Date+hrsminsec)
   
-    ##plot4
+  ##plot4
+  png("C:/Users/andrewll/Documents/R/expldata/ExData_Plotting1/plot4.png", width = 480, height = 480, units = "px")
   par(mfrow = c(2,2), mar = c(5,4,2,1))
   with(dat6, plot(date_time, Global_active_power, type="l", ylab = "Global Active Power", xlab = ""))
   with(dat6, plot(date_time, Voltage, type="l", ylab = "Voltage"))
@@ -52,5 +50,5 @@ plot4<-function(){
   with(subset(dat6), points(date_time, Sub_metering_3, type = "l", col = "blue"))
   legend("topright", pch = 1, col = c("black", "red","blue"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
   with(dat6, plot(date_time, Global_reactive_power, type="l", ylab = "Global_reactive_power"))
-  
+  dev.off()
 }
