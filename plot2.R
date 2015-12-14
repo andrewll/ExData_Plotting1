@@ -8,9 +8,6 @@ plot2<-function(){
   
   library(ggplot2)
   library(dplyr)
-  library(sqldf)
-  library(scales)
-  library(reshape2)
   library(lubridate)
   
   ## read data
@@ -43,6 +40,7 @@ plot2<-function(){
   dat6<-mutate(dat5, date_time = Date+hrsminsec)
   
   ##plot2
+  png("C:/Users/andrewll/Documents/R/expldata/ExData_Plotting1/plot2.png", width = 480, height = 480, units = "px")
   with(dat6, plot(date_time, Global_active_power, type="l", ylab = "Global Active Power (kilowatts)"))
-  
+  dev.off()
 }
