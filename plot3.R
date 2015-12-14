@@ -8,9 +8,6 @@ plot3<-function(){
   
   library(ggplot2)
   library(dplyr)
-  library(sqldf)
-  library(scales)
-  library(reshape2)
   library(lubridate)
   
   ## read data
@@ -44,10 +41,11 @@ plot3<-function(){
   
 
   ##plot3
+  png("C:/Users/andrewll/Documents/R/expldata/ExData_Plotting1/plot3.png", width = 480, height = 480, units = "px")
   with(dat6, plot(date_time, Sub_metering_1, type="l", ylab = "Energy sub metering", xlab = ""))
   with(subset(dat6), points(date_time, Sub_metering_2, type = "l", col = "red"))
   with(subset(dat6), points(date_time, Sub_metering_3, type = "l", col = "blue"))
   legend("topright", pch = 1, col = c("black", "red","blue"), legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
-  
+  dev.off()
   
 }
